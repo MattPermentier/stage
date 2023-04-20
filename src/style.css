@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+body {
+  background-color: #f2f0ef;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.showProducts {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.productCard {
+  width: 350px;
+  height: 350px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+
+.productImage,
+.productInfo {
+  width: 100%;
+}
+
+.productImage {
+  height: 70%;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  height: 30%;
+}
+
+.productList {
+  list-style-type: none;
+}
+
+.productNameContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.productName {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #444444;
+}
+
+.productDetails {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  font-size: 1.1em;
+}
+
+.productPricing {
+  margin-top: 20px;
+}
