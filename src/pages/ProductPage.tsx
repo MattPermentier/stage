@@ -21,10 +21,15 @@ const ProductPage = () => {
     getProducts(`pageSize=10`);
   }, []);
 
+  const weatherFilter = (weatherType: any) => {
+    // get all products by weather type using fetch request
+    getProducts(`pageSize=10&standingPlaceFilters=${weatherType}`);
+  };
+
   return (
     <div>
       <div className="main">
-        <Sidebar data={data} />
+        <Sidebar data={data} weatherFilter={weatherFilter} />
         <ShowProducts data={data} />
       </div>
     </div>

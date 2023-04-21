@@ -5,8 +5,6 @@ type ShowProductsProps = {
 };
 
 const ShowProducts = (props: ShowProductsProps) => {
-  console.log(props.data.products);
-
   return (
     <div>
       <div className="showProducts">
