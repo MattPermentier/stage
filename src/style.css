@@ -33,10 +33,6 @@ body {
   width: 100%;
 }
 
-.productImage {
-  height: 70%;
-}
-
 .productInfo {
   display: flex;
   flex-direction: column;

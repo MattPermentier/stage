@@ -13,7 +13,7 @@ const Sidebar = (props: SidebarProps) => {
   const [productHeight, setProductHeight] = useState<number[]>([]);
 
   const setStandingValues = async () => {
-    await props.data.products?.map((product: any) => {
+    await props.data?.map((product: any) => {
       if (!standingPlace.includes(product.standingPlace)) {
         setStandingPlace([...standingPlace, product.standingPlace]);
       }
@@ -23,7 +23,7 @@ const Sidebar = (props: SidebarProps) => {
 
   const setDiameterValues = async () => {
     // check if diameter is unique in state and add it to the state
-    await props.data.products?.map((product: any) => {
+    await props.data?.map((product: any) => {
       if (!productDiameter.includes(product.diameter)) {
         setProductDiameter([...productDiameter, product.diameter]);
       }
@@ -32,7 +32,7 @@ const Sidebar = (props: SidebarProps) => {
   setDiameterValues();
 
   const setHeightValues = async () => {
-    await props.data.products?.map((product: any) => {
+    await props.data?.map((product: any) => {
       if (!productHeight.includes(product.height)) {
         setProductHeight([...productHeight, product.height]);
       }

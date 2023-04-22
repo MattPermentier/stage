@@ -8,7 +8,7 @@ const ShowProducts = (props: ShowProductsProps) => {
   return (
     <div>
       <div className="showProducts">
-        {props.data.products?.map((product: any) => (
+        {props.data?.map((product: any) => (
           <div className="productCard" key={product.id}>
             <img className="productImage" src={product.photoUrl} alt="foto" />
             <div className="productInfo">

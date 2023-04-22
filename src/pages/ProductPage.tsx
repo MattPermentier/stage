@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ShowProducts from "../components/ShowProducts";
 import Sidebar from "../components/Sidebar";
+import TopFilter from "../components/TopFilter";
 
 const ProductPage = () => {
   const [data, setData] = useState([]);
@@ -11,9 +12,10 @@ const ProductPage = () => {
     );
     // save data in global variable to make filters
     const data = await response.json();
+    console.log(data);
 
     // save products in state
-    setData(data);
+    setData(data.products);
   };
 
   useEffect(() => {
@@ -41,6 +43,7 @@ const ProductPage = () => {
 
   return (
     <div>
+      <TopFilter />
       <div className="main">
         <Sidebar
           data={data}
