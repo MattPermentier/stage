@@ -26,10 +26,28 @@ const ProductPage = () => {
     getProducts(`pageSize=10&standingPlaceFilters=${weatherType}`);
   };
 
+  const diameterFilter = (diameterSize: any) => {
+    // get all products by diameter size useing fetch request
+    getProducts(
+      `pageSize=10&diameterMinimumFilter=${diameterSize}&diameterMaximumFilter=${diameterSize}`
+    );
+  };
+
+  const heightFilter = (heightSize: any) => {
+    getProducts(
+      `pageSize=10&heightMinimumFilter=${heightSize}&heightMaximumFilter=${heightSize}`
+    );
+  };
+
   return (
     <div>
       <div className="main">
-        <Sidebar data={data} weatherFilter={weatherFilter} />
+        <Sidebar
+          data={data}
+          weatherFilter={weatherFilter}
+          diameterFilter={diameterFilter}
+          heightFilter={heightFilter}
+        />
         <ShowProducts data={data} />
       </div>
     </div>

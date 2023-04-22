@@ -3,6 +3,8 @@ import { useState } from "react";
 type SidebarProps = {
   data: any;
   weatherFilter: Function;
+  diameterFilter: Function;
+  heightFilter: Function;
 };
 
 const Sidebar = (props: SidebarProps) => {
@@ -40,51 +42,53 @@ const Sidebar = (props: SidebarProps) => {
 
   return (
     <div className="sidebarContainer">
-      <form className="standingPlace">
-        <h3>STANDPLAATS</h3>
-        {standingPlace?.map((standingPlace: any, index: number) => (
-          <div key={index++}>
-            <input
-              type="radio"
-              className="weatherInput"
-              id="sunBtn"
-              name="standingPlace"
-              onChange={() => props.weatherFilter(standingPlace)}
-            />
-            <label htmlFor="sunBtn">{standingPlace}</label>
-          </div>
-        ))}
-      </form>
-      <form action="" className="diameter">
-        <h3>Diameter</h3>
-        {productDiameter?.map((productDiameter: any, index: number) => (
-          <div key={index++}>
-            <input
-              type="radio"
-              className="weatherInput"
-              id="sunBtn"
-              name="standingPlace"
-              // onChange={() => props.weatherFilter(standingPlace)}
-            />
-            <label htmlFor="sunBtn">{productDiameter}</label>
-          </div>
-        ))}
-      </form>
-      <form action="" className="diameter">
-        <h3>Hoogte</h3>
-        {productHeight?.map((productHeight: any, index: number) => (
-          <div key={index++}>
-            <input
-              type="radio"
-              className="weatherInput"
-              id="sunBtn"
-              name="standingPlace"
-              // onChange={() => props.weatherFilter(standingPlace)}
-            />
-            <label htmlFor="sunBtn">{productHeight}</label>
-          </div>
-        ))}
-      </form>
+      <div className="sidebarItems">
+        <form className="standingPlace">
+          <h3 className="sidebarHeader">STANDPLAATS</h3>
+          {standingPlace?.map((standingPlace: any, index: number) => (
+            <div className="radioBtns" key={index++}>
+              <input
+                type="radio"
+                className="weatherInput"
+                id="sunBtn"
+                name="standingPlace"
+                onChange={() => props.weatherFilter(standingPlace)}
+              />
+              <label htmlFor="sunBtn">{standingPlace}</label>
+            </div>
+          ))}
+        </form>
+        <form className="diameter">
+          <h3 className="sidebarHeader">Diameter</h3>
+          {productDiameter?.map((productDiameter: any, index: number) => (
+            <div className="radioBtns" key={index++}>
+              <input
+                type="radio"
+                className="weatherInput"
+                id="sunBtn"
+                name="standingPlace"
+                onChange={() => props.diameterFilter(productDiameter)}
+              />
+              <label htmlFor="sunBtn">{productDiameter}</label>
+            </div>
+          ))}
+        </form>
+        <form className="diameter">
+          <h3 className="sidebarHeader">Hoogte</h3>
+          {productHeight?.map((productHeight: any, index: number) => (
+            <div className="radioBtns" key={index++}>
+              <input
+                type="radio"
+                className="weatherInput"
+                id="sunBtn"
+                name="standingPlace"
+                onChange={() => props.heightFilter(productHeight)}
+              />
+              <label htmlFor="sunBtn">{productHeight}</label>
+            </div>
+          ))}
+        </form>
+      </div>
     </div>
   );
 };
