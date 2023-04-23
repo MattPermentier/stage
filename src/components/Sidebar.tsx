@@ -69,7 +69,7 @@ const Sidebar = (props: SidebarProps) => {
                 name="standingPlace"
                 onChange={() => props.diameterFilter(productDiameter)}
               />
-              <label htmlFor="sunBtn">{productDiameter}</label>
+              <label htmlFor="sunBtn">{productDiameter} cm</label>
             </div>
           ))}
         </form>
@@ -84,7 +84,7 @@ const Sidebar = (props: SidebarProps) => {
                 name="standingPlace"
                 onChange={() => props.heightFilter(productHeight)}
               />
-              <label htmlFor="sunBtn">{productHeight}</label>
+              <label htmlFor="sunBtn">{productHeight} cm</label>
             </div>
           ))}
         </form>

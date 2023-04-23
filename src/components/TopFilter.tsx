@@ -1,7 +1,12 @@
-const TopFilter = () => {
+type ShowProductsProps = {
+  data: any;
+  filterItems: Function;
+};
+
+const TopFilter = (props: ShowProductsProps) => {
   return (
     <div className="filters">
-      <select name="" id="filterOptions">
+      <select className="filterOptions" onClick={(e) => props.filterItems(e)}>
         <option value="Relevantie">Relevantie</option>
         <option value="Prijs laag-hoog">Prijs laag-hoog</option>
         <option value="Prijs hoog-laag">Prijs hoog-laag</option>

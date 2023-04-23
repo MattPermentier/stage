@@ -10,15 +10,36 @@ body {
   background-color: #f3efee;
 }
 
+/* HEADER */
+header {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100px;
+  background-color: #37693a;
+  color: #e4dfde;
+}
+
+.leftHeaderSide {
+  display: flex;
+  align-items: center;
+}
+
+.headerLogo {
+  width: 100px;
+}
+
 .main {
   display: flex;
   justify-content: center;
+  margin-top: 60px;
 }
 
 .showProducts {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(3, 1fr);
+  margin-top: 10px;
 }
 
 .productCard {
@@ -66,6 +87,17 @@ body {
   margin-top: 20px;
 }
 
+.topFilter {
+  display: flex;
+  justify-content: center;
+}
+
+/* TOPFILTER */
+.filterOptions {
+  width: 130px;
+  font-size: 1.1rem;
+}
+
 /* SIDEBAR */
 .sidebarContainer {
   display: flex;
@@ -101,4 +133,95 @@ body {
 .weatherInput {
   display: flex;
   width: 20px;
+}
+
+/* DETAILSPAGE */
+.productDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainInformation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  height: 50vh;
+  width: 1300px;
+}
+
+.detailsImage {
+  /* width: 500px; */
+  width: 50%;
+}
+
+.detailsInfo {
+  display: flex;
+  flex-direction: column;
+  /* width: 700px; */
+  width: 50%;
+  gap: 30px;
+}
+
+.detailsName {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.detailsDescription {
+  font-size: 1.1rem;
+}
+
+.detailsPrice {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.extraInformation {
+  display: flex;
+  justify-content: center;
+}
+
+.detailsTable {
+  width: 1300px;
+  height: 150px;
+}
+
+.unevenRow {
+  background-color: #f9f9f9;
+}
+
+@media only screen and (max-width: 1300px) {
+  .showProducts {
+    /* display: grid;
+  gap: 20px; */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .showProducts {
+    /* display: grid;
+  gap: 20px; */
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .sidebarContainer {
+    width: 350px;
+    margin: 0;
+  }
+
+  header {
+    justify-content: center;
+  }
 }

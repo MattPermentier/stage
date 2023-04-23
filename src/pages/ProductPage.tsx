@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import ShowProducts from "../components/ShowProducts";
 import Sidebar from "../components/Sidebar";
-import TopFilter from "../components/TopFilter";
+import Header from "../components/Header";
 
-const ProductPage = () => {
+type ProductPageProps = {
+  setProduct: Function;
+  product: any;
+};
+
+const ProductPage = (props: ProductPageProps) => {
   const [data, setData] = useState([]);
 
   const getProducts = async (uri: any) => {
     const response = await fetch(
       `https://jemid-warmupapi.azurewebsites.net/api/products?${uri}`
     );
-    // save data in global variable to make filters
     const data = await response.json();
-    console.log(data);
 
     // save products in state
     setData(data.products);
@@ -22,6 +25,43 @@ const ProductPage = () => {
     // window onload load all products
     getProducts(`pageSize=10`);
   }, []);
+
+  // check which option button is clicked
+  const filterItems = (e: any) => {
+    let click = e.target.value;
+
+    if (click === "Relevantie") {
+      getProducts("pageSize=10");
+    } else if (click === "Prijs laag-hoog") {
+      priceFilter(click);
+    } else if (click === "Prijs hoog-laag") {
+      priceFilter(click);
+    } else if (click === "Naam a-z") {
+      alphabeticFilter(1, -1);
+    } else if (click === "Naam z-a") {
+      alphabeticFilter(-1, 1);
+    }
+  };
+
+  // sort products on price
+  const priceFilter = (clickedTarget: any) => {
+    if (clickedTarget === "Prijs laag-hoog") {
+      setData(
+        [...data].sort((first: any, second: any) => first.price - second.price)
+      );
+    } else {
+      setData(
+        [...data].sort((first: any, second: any) => second.price - first.price)
+      );
+    }
+  };
+
+  // sort products on alphabet
+  const alphabeticFilter = (first: any, second: any) => {
+    setData(
+      [...data].sort((a: any, b: any) => (a.name > b.name ? first : second))
+    );
+  };
 
   const weatherFilter = (weatherType: any) => {
     // get all products by weather type using fetch request
@@ -41,9 +81,16 @@ const ProductPage = () => {
     );
   };
 
+  const clickHandler = (id: any) => {
+    // console.log(data[id - 1]);
+    props.setProduct(data[id - 1]);
+    // console.log(product);
+  };
+
   return (
     <div>
-      <TopFilter />
+      <Header />
+      <div className="topFilter"></div>
       <div className="main">
         <Sidebar
           data={data}
@@ -51,7 +98,11 @@ const ProductPage = () => {
           diameterFilter={diameterFilter}
           heightFilter={heightFilter}
         />
-        <ShowProducts data={data} />
+        <ShowProducts
+          data={data}
+          filterItems={filterItems}
+          clickHandler={clickHandler}
+        />
       </div>
     </div>
   );
