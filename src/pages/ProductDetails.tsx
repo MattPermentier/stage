@@ -5,8 +5,6 @@ type ProductDetailsProps = {
 };
 
 const ProductDetails = (props: ProductDetailsProps) => {
-  console.log(props.product);
-
   return (
     <div className="productDetail">
       <Header />
@@ -20,22 +18,48 @@ const ProductDetails = (props: ProductDetailsProps) => {
       </div>
       <div className="extraInformation">
         <table className="detailsTable">
-          <tr className="unevenRow">
-            <td>Diameter</td>
-            <td>{props.product.diameter}</td>
-          </tr>
-          <tr>
-            <td>Hoogte</td>
-            <td>{props.product.height}</td>
-          </tr>
-          <tr className="unevenRow">
-            <td>Standplaats</td>
-            <td>{props.product.standingPlace}</td>
-          </tr>
-          <tr>
-            <td>Water</td>
-            <td>{props.product.wateringNeeds}</td>
-          </tr>
+          <tbody>
+            <tr className="unevenRow">
+              <td>Diameter</td>
+              <td>{props.product.diameter} cm</td>
+            </tr>
+            <tr>
+              <td>Hoogte</td>
+              <td>{props.product.height} cm</td>
+            </tr>
+            <tr className="unevenRow">
+              <td>Standplaats</td>
+              <td>
+                {(() => {
+                  switch (props.product.standingPlace) {
+                    case "Sun":
+                      return "Zon";
+                    case "Partial":
+                      return "Halfschaduw";
+                    case "Shadow":
+                      return "Schaduw";
+                    default:
+                  }
+                })()}
+              </td>
+            </tr>
+            <tr>
+              <td>Water</td>
+              <td>
+                {(() => {
+                  switch (props.product.wateringNeeds) {
+                    case "High":
+                      return "Veel";
+                    case "Medium":
+                      return "Gemiddeld";
+                    case "Low":
+                      return "Weinig";
+                    default:
+                  }
+                })()}
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>

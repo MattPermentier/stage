@@ -69,22 +69,21 @@ const ProductPage = (props: ProductPageProps) => {
   };
 
   const diameterFilter = (diameterSize: any) => {
-    // get all products by diameter size useing fetch request
+    // get all products by diameter size using fetch request
     getProducts(
       `pageSize=10&diameterMinimumFilter=${diameterSize}&diameterMaximumFilter=${diameterSize}`
     );
   };
 
   const heightFilter = (heightSize: any) => {
+    // get all products by height size using fetch request
     getProducts(
       `pageSize=10&heightMinimumFilter=${heightSize}&heightMaximumFilter=${heightSize}`
     );
   };
 
   const clickHandler = (id: any) => {
-    // console.log(data[id - 1]);
     props.setProduct(data[id - 1]);
-    // console.log(product);
   };
 
   return (

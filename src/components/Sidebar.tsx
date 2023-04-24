@@ -54,7 +54,20 @@ const Sidebar = (props: SidebarProps) => {
                 name="standingPlace"
                 onChange={() => props.weatherFilter(standingPlace)}
               />
-              <label htmlFor="sunBtn">{standingPlace}</label>
+              {/* <label htmlFor="sunBtn">{standingPlace}</label> */}
+              <label htmlFor="sunBtn">
+                {(() => {
+                  switch (standingPlace) {
+                    case "Sun":
+                      return "Zon";
+                    case "Partial":
+                      return "Halfschaduw";
+                    case "Shadow":
+                      return "Schaduw";
+                    default:
+                  }
+                })()}
+              </label>
             </div>
           ))}
         </form>

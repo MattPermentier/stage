@@ -179,7 +179,6 @@ input[type="radio"] {
 .detailsInfo {
   display: flex;
   flex-direction: column;
-  /* width: 700px; */
   width: 50%;
   gap: 30px;
 }
@@ -214,17 +213,27 @@ input[type="radio"] {
 
 @media only screen and (max-width: 1300px) {
   .showProducts {
-    /* display: grid;
-  gap: 20px; */
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mainInformation,
+  .extraInformation {
+    /* flex-direction: column; */
+    width: 800px;
   }
 }
 
 @media only screen and (max-width: 950px) {
   .showProducts {
-    /* display: grid;
-  gap: 20px; */
     grid-template-columns: repeat(1, 1fr);
+  }
+  .mainInformation {
+    flex-direction: column;
+    margin-top: 150px;
+  }
+  .extraInformation {
+    width: 450px;
+    margin-top: 150px;
   }
 }
 
