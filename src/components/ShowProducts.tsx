@@ -19,8 +19,7 @@ const ShowProducts = (props: ShowProductsProps) => {
             key={product.id}
             onClick={() => props.clickHandler(product.id)}
           >
-            {/* <Link to={`/product/${product.id}`}> */}
-            <Link to={`/product`}>
+            <Link to={`/product`} className="link">
               <img className="productImage" src={product.photoUrl} alt="foto" />
               <div className="productInfo">
                 <div className="productNameContainer">

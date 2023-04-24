@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
 
+:root {
+  --green: #37693a;
+  --bg-color: #f3efee;
+  --header-color: #e4dfde;
+  --productCard-color: #444444;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -7,7 +14,7 @@
 }
 
 body {
-  background-color: #f3efee;
+  background-color: var(--bg-color);
 }
 
 /* HEADER */
@@ -16,8 +23,11 @@ header {
   align-items: center;
   width: 100vw;
   height: 100px;
-  background-color: #37693a;
-  color: #e4dfde;
+  background-color: var(--green);
+}
+
+.headerLink {
+  color: var(--header-color);
 }
 
 .leftHeaderSide {
@@ -47,6 +57,11 @@ header {
   height: 350px;
   border: 1px solid lightgray;
   border-radius: 10px;
+  list-style-type: none;
+}
+
+.link {
+  text-decoration: none;
 }
 
 .productImage,
@@ -73,7 +88,7 @@ header {
 .productName {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #444444;
+  color: var(--productCard-color);
 }
 
 .productDetails {
@@ -127,7 +142,11 @@ header {
   gap: 8px;
   margin: 5px 0;
   font-size: 1.1rem;
-  color: #37693a;
+  color: var(--green);
+}
+
+input[type="radio"] {
+  accent-color: var(--green);
 }
 
 .weatherInput {
